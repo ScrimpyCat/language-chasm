@@ -1,0 +1,64 @@
+{
+    "name": "Computing Hub ASM",
+    "scopeName": "source.chasm",
+    "fileTypes": ["chasm"],
+    "patterns": [
+        { "include": "#all" }
+    ],
+    "repository": {
+        "all": {
+            "patterns": [
+                { "include": "#directive" },
+                { "include": "#instruction" },
+                { "include": "#label" },
+                { "include": "#string" },
+                { "include": "#number" },
+                { "include": "#symbol" },
+                { "include": "#comment" }
+            ]
+        },
+        "directive": {
+            "name": "meta.keyword.control.directive.chasm-directive-$1.chasm",
+            "begin": "\\.(.*?)(?=\\s)",
+            "end": "$",
+            "patterns": [
+                { "include": "#string" },
+                { "include": "#number" },
+                { "include": "#symbol" },
+                { "include": "#comment" }
+            ]
+        },
+        "instruction": {
+            "name": "meta.entity.name.function.instruction.chasm-instruction-$1.chasm",
+            "begin": "\\b\\s*(\\w+)\\s",
+            "end": "$",
+            "patterns": [
+                { "include": "#string" },
+                { "include": "#number" },
+                { "include": "#symbol" },
+                { "include": "#comment" }
+            ]
+        },
+        "label": {
+            "name": "meta.entity.name.type.object.label.chasm-label-$1.chasm",
+            "match": "\\b(\\w+):"
+        },
+        "string": {
+            "name": "string.quoted.double.chasm-string.chasm",
+            "begin": "\".*?",
+            "end": "((?<!\\\\)|(?<=\\\\\\\\))\""
+        },
+        "number": {
+            "name": "constant.numeric.decimal.chasm-number.chasm",
+            "match": "[+-]?\\d+"
+        },
+        "symbol": {
+            "name": "constant.variable.symbol.chasm-symbol-$1.chasm",
+            "match": "\\b(\\w+)\\b"
+        },
+        "comment": {
+            "name": "comment.chasm",
+            "match": "#.*$"
+        }
+    }
+}
