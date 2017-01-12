@@ -54,7 +54,7 @@
         },
         "symbol": {
             "name": "constant.variable.symbol.chasm-symbol-$1.chasm",
-            "match": "\\b(\\w+)\\b"
+            "match": "(\\w+)"
         },
         "comment": {
             "name": "comment.chasm",
