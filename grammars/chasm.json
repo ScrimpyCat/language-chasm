@@ -9,8 +9,8 @@
         "all": {
             "patterns": [
                 { "include": "#directive" },
-                { "include": "#instruction" },
                 { "include": "#label" },
+                { "include": "#instruction" },
                 { "include": "#string" },
                 { "include": "#number" },
                 { "include": "#symbol" },
@@ -30,7 +30,7 @@
         },
         "instruction": {
             "name": "meta.entity.name.function.instruction.chasm-instruction-$1.chasm",
-            "begin": "\\b\\s*(\\w+)\\s",
+            "begin": "\\b\\s*(\\w+)\\b",
             "end": "$",
             "patterns": [
                 { "include": "#string" },
